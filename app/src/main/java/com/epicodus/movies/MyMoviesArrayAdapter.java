@@ -2,8 +2,6 @@ package com.epicodus.movies;
 
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.widget.ArrayAdapter;
 
 

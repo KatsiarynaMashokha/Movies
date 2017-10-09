@@ -1,33 +1,45 @@
 package com.epicodus.movies;
 
-import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+
 public class MoviesActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.movies_text_view) TextView mLocationTextView;
+//    @Bind(R.id.submitButton) Button mSubmitButton;
+//    @Bind(R.id.cancelButton) Button mCancelButton;
+
     private String[] movies = new String[] {"It", "The Foreigner", "Marshall", "Happy Death Day", "The Secret Scripture"};
     private String[] genres = new String[] {"Horror", "Mystery", "Drama", "Comedy", "Romance"};
+    FragmentManager fm = getSupportFragmentManager();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mLocationTextView = (TextView) findViewById(R.id.movies_text_view);
+
+        MoodDialogFragment mdf = new MoodDialogFragment();
+        mdf.show(fm, "Sample Fragment");
+
+
+        ButterKnife.bind(this);
 
         String receivedString = getIntent().getStringExtra("location");
         mLocationTextView.setText("Here are all the movies near: " + receivedString);
 
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.item, movies);
         MyMoviesArrayAdapter adapter = new MyMoviesArrayAdapter(this,
                 android.R.layout.simple_list_item_1,
                 movies,
@@ -42,7 +54,5 @@ public class MoviesActivity extends AppCompatActivity {
                 view.setBackgroundColor(Color.RED);
             }
         });
-
-
     }
 }

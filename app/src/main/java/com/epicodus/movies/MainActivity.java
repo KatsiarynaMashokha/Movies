@@ -1,5 +1,6 @@
 package com.epicodus.movies;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
