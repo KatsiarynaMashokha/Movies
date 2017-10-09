@@ -1,6 +1,7 @@
 package com.epicodus.movies;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +35,10 @@ public class MoviesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String movies = ((TextView)view).getText().toString();
                 Toast.makeText(MoviesActivity.this, movies, Toast.LENGTH_SHORT).show();
+                view.setBackgroundColor(Color.RED);
             }
         });
+
+
     }
 }
