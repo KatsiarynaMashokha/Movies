@@ -26,7 +26,7 @@ public class MoviesActivity extends AppCompatActivity {
         String receivedString = getIntent().getStringExtra("location");
         mLocationTextView.setText("Here are all the movies near: " + receivedString);
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movies);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.item, movies);
         mListView.setAdapter(arrayAdapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -36,6 +36,5 @@ public class MoviesActivity extends AppCompatActivity {
                 Toast.makeText(MoviesActivity.this, movies, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
