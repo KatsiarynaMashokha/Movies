@@ -15,7 +15,7 @@ public class MoviesActivity extends AppCompatActivity {
     private TextView mLocationTextView;
     private ListView mListView;
     private String[] movies = new String[] {"It", "The Foreigner", "Marshall", "Happy Death Day", "The Secret Scripture"};
-
+    private String[] genres = new String[] {"Horror", "Mystery", "Drama", "Comedy", "Romance"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +27,12 @@ public class MoviesActivity extends AppCompatActivity {
         String receivedString = getIntent().getStringExtra("location");
         mLocationTextView.setText("Here are all the movies near: " + receivedString);
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.item, movies);
-        mListView.setAdapter(arrayAdapter);
+//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.item, movies);
+        MyMoviesArrayAdapter adapter = new MyMoviesArrayAdapter(this,
+                android.R.layout.simple_list_item_1,
+                movies,
+                genres);
+        mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
