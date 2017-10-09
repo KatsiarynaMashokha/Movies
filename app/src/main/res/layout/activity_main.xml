@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:fontFamily="cursive"
-        android:text="My Movies"
+        android:text="@string/my_movies_title"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
-        android:hint="Enter location"
+        android:hint="@string/location_hint"
         android:textStyle="bold"
         android:fontFamily="cursive"
         android:backgroundTint="#FFFFFF"
@@ -48,7 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="Find Movies"
+        android:text="@string/find_movies_button"
         android:textAllCaps="false" />
 
 </RelativeLayout>
